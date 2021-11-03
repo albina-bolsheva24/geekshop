@@ -1,8 +1,6 @@
 from django.shortcuts import render
 
 
-# Create your views here
-
 def index(request):
     context = {
         'title': 'Главная',
@@ -24,5 +22,4 @@ def products(request, pk=None):
         'title': 'Продукты'
     }
     return render(request, 'mainapp/products.html', context=context)
-
 
