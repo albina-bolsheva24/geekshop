@@ -40,7 +40,7 @@ def register(request):
     context = {
         'register_form': register_form
     }
-    return render(request, "authapp/register_html", context)
+    return render(request, "authapp/register.html", context)
 
 
 def edit(request):
