@@ -1,9 +1,8 @@
 from django.db import models
 
 
-# Create your models here.
 class ProductCategory(models.Model):
-    name = models.CharField(max_lenght=64, unique=True, verbose_name='название')
+    name = models.CharField(max_length=64, unique=True, verbose_name='название')
     description = models.TextField(verbose_name='описание')
 
     def __str__(self):
@@ -13,6 +12,7 @@ class ProductCategory(models.Model):
         verbose_name = 'категория'
         verbose_name_plural = 'категории'
         ordering = ('-id',)
+
 
 class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, verbose_name='категория')
