@@ -17,18 +17,18 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         categories = load_from_json('categories')
 
-        ProductCategory.objects.all.delete()
+        ProductCategory.objects.all().delete()
         for category in categories:
             ProductCategory.objects.create(**category)
 
         products = load_from_json('products')
 
         Product.objects.all().delete()
-        for products in products:
+        for product in products:
             category_name = product['category']
             category_item = ProductCategory.objects.get(name=category_name)
             product['category'] = category_item
-            Product.objects.create(**products)
+            Product.objects.create(**product)
 
         ShopUser.objects.create_superuser('django', password='geekbrains', age=18)
         # User.objects.create_superuser('django', password='geekbrains')
