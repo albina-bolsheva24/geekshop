@@ -53,3 +53,8 @@ def clean_age(self):
     if data < 18:
         raise forms.ValidationError('Слишком молод!')
     return data
+
+# def clean_email(self):
+#   data = self.cleaned_data['email']
+#   is_exists = ShopUser.objects.exclude(pk=self.instance.pk).filter(email=data).exists)
+#   if

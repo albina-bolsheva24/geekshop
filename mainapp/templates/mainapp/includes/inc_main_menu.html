@@ -6,6 +6,9 @@
        class="active"{% endif %}>продукты</a></li>
 <li><a href="{% url 'contact' %}"{% if request.resolver_match.url_name == 'contact' %} class="active"{% endif %}>контакты</a></li>
 
+    {% if user.is_superuser %}
+        <li><a href="{% url 'adminapp:user_list' %}">Админка</a></li>
+    {% endif %}
 
 <li>
     {% if user.is_authenticated %}
