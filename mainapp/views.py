@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
+from mainapp.models import Product, ProductCategory
 
-# Create your views here
 
 def index(request):
     context = {
@@ -24,5 +24,3 @@ def products(request, pk=None):
         'title': 'Продукты'
     }
     return render(request, 'mainapp/products.html', context=context)
-
-
